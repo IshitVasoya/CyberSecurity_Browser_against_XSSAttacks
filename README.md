@@ -1,4 +1,4 @@
-# CyberSecurity_Browaer_against_XSSAttacks
+# CyberSecurity_Browser_against_XSSAttacks
 Securing User Browsing: Comparing Browsers and Extensions Effectiveness against XSS Attacks
 
 Cross-site scripting (XSS) attacks pose a significant threat to web application security, with reflected XSS vulnerabilities presenting a
