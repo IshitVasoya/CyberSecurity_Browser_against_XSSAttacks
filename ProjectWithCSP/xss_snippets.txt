@@ -1,0 +1,1 @@
+<a onmouseover="alert(document.cookie)"> Hover around here </a>
