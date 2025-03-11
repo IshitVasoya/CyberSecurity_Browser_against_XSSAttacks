@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+    /* Header and Navigation */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            line-height: 1.5;
+        }
+
+        /* Actions */
+        .actions {
+            margin-top: 0px;
+        }
+
+        .actions ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .actions li {
+            margin: 0 10px;
+        }
+
+        .actions a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .actions a:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Recent File Uploads */
+        .file-uploads {
+            margin-top: 30px;
+        }
+
+        .file-uploads ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .file-uploads li {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+        <div class="actions" align="center">
+            <h2>Actions</h2>
+            <ul>
+                <li><a href="/index">Home</a></li>
+				<li><a href="/dashboard">Dashboard</a></li>
+				<li><a href="/xss_snippets">New Snippets</a></li>
+				<li><a href="/snippets">My Snippets</a></li>
+                <li><a href="/update">Update Profile</a></li>
+                <li><a href="/upload">Upload File</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+    <main>
+<center>
+    <br><br>
+        <h2>User Information</h2>
+        <p>
+            Name: {{ user_data['First Name'] | safe }} {{ user_data['Middle Name'] }} {{ user_data['Last Name'] }}<br>
+            Date of Birth: {{ user_data['Date of Birth'] }}<br>
+            Favorite Color: {{ user_data['Favorite Color'] | safe }}<br>
+            Address: {{ user_data['Address'] }}<br>
+            Phone Number: {{ user_data['Phone Number'] }}<br>
+            Email: {{ user_data['Email'] }}<br>
+            About: {{ user_data['About'] }}
+        </p>
+
+        
+
+        <div class="file-uploads">
+            <h2>Recent File Uploads</h2>
+            <ul>
+                <li>image.jpg</li>
+                <li>document.pdf</li>
+                <li>presentation.pptx</li>
+            </ul>
+        </div>
+
+	{% if profile_picture %}
+    <h2>Profile Picture:</h2>
+    <img src="{{ url_for('profile_picture', username=user_data['Username'], filename=profile_picture) }}" alt="Profile Picture">
+    {% else %}
+    <p>No profile picture available</p>
+    {% endif %}
+</center>
+    </main>
+</body>
+</html>
