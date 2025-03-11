@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS Snippets</title>
+    <style>
+	    /* Header and Navigation */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Upload Form Container */
+        .upload-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Upload Form */
+        .upload-form {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+		/* Actions */
+        .actions {
+            margin-top: 0px;
+        }
+
+        .actions ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .actions li {
+            margin: 0 10px;
+        }
+
+        .actions a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .actions a:hover {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+     
+ <div class="actions">
+            <h2>Actions</h2>
+            <ul>
+                <li><a href="/index">Home</a></li>
+				<li><a href="/dashboard">Dashboard</a></li>
+				<li><a href="/xss_snippets">New Snippets</a></li>
+				<li><a href="/snippets">My Snippets</a></li>
+                <li><a href="/update">Update Profile</a></li>
+                <li><a href="/upload">Upload File</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+        <br><br><br><br>
+        <center>
+        <h1>XSS Snippets</h1>   
+
+ 
+    <form action="/xss_snippets" method="post">
+        <label for="javascript_code">Enter JavaScript code:</label><br>
+        <textarea id="javascript_code" name="javascript_code" rows="5" cols="50"></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+
+</center>
+</body>
+</html>

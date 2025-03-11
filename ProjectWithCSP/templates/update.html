@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+    <style>
+	    /* Header and Navigation */
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+		
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+		/* Actions */
+        .actions {
+            margin-top: 0px;
+        }
+
+        .actions ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .actions li {
+            margin: 0 10px;
+        }
+
+        .actions a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .actions a:hover {
+            background-color: #333;
+            color: #fff;
+        }
+		
+        /* Update Form Container */
+        .update-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+			margin-top: 100px;
+        }
+
+        /* Update Form */
+        .update-form {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="date"],
+        input[type="tel"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="file"] {
+            margin-top: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+    </style>
+</head>
+<body>
+        <div class="actions">
+            <h2>Actions</h2>
+            <ul>
+                <li><a href="/index">Home</a></li>
+				<li><a href="/dashboard">Dashboard</a></li>
+				<li><a href="/xss_snippets">New Snippets</a></li>
+				<li><a href="/snippets">My Snippets</a></li>
+                <li><a href="/update">Update Profile</a></li>
+                <li><a href="/upload">Upload File</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+    <div class="update-container">
+
+        <div class="update-form">
+            <h2>Update Profile</h2>
+            <form action="/update" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" value="{{ user_data.get('First Name', '') }}">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" value="{{ user_data.get('Last Name', '') }}">
+                </div>
+                <div class="form-group">
+                    <label for="middleName">Middle Name:</label>
+                    <input type="text" id="middleName" name="middleName" value="{{ user_data.get('Middle Name', '') }}">
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" value="{{ user_data.get('Date of Birth', '') }}">
+                </div>
+                <div class="form-group">
+                    <label for="favoriteColor">Favorite Color:</label>
+                    <input type="text" id="favoriteColor" name="favoriteColor" value="{{ user_data.get('Favorite Color', '') }}">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" value="{{ user_data.get('Password', '') }}">
+                </div>
+                <div class="form-group">
+                    <label for="profilePicture">Profile Picture:</label>
+                    <input type="file" id="profilePicture" name="profilePicture">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <textarea id="address" name="address">{{ user_data.get('Address', '') }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number:</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" value="{{ user_data.get('Phone Number', '') }}">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="{{ user_data.get('Email', '') }}">
+                </div>
+                <div class="form-group">
+                    <label for="about">Tell us about yourself:</label>
+                    <textarea id="about" name="about">{{ user_data.get('About', '') }}</textarea>
+                </div>
+                <input type="submit" value="Update Profile">
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>
